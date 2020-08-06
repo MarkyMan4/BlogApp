@@ -7,13 +7,14 @@ import {
 } from "react-router-dom";
 import axios from 'axios';
 import Post from './components/post';
+import UserInfo from './components/userInfo';
 
 export default function App() {
   return (
     <Router>
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a className="navbar-brand">Blog</a>
+          <Link to="/" className="navbar-brand">Blog</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -23,11 +24,11 @@ export default function App() {
               <li className="nav-item active">
                 <Link to="/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link to="/users" className="nav-link">Users</Link>
-              </li>
+              </li> */}
               <li className="nav-item">
-                <Link to="/about" className="nav-link">Users</Link>
+                <Link to="/about" className="nav-link">About</Link>
               </li>
             </ul>
           </div>
@@ -39,8 +40,7 @@ export default function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/users/:userId" component={UserInfo}>
           </Route>
           <Route path="/">
             <Home />
@@ -60,7 +60,7 @@ class Home extends Component {
     return ( 
       <div className="m-5">
         {this.state.data.map(datum =>
-          <Post key={datum.id} title={datum.title} body={datum.body} />
+          <Post key={datum.id} title={datum.title} body={datum.body} userId={datum.userId} />
         )}
       </div>
      );
@@ -76,8 +76,4 @@ class Home extends Component {
 
 function About() {
   return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
