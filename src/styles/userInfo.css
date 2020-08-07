@@ -2,9 +2,9 @@
     margin: 0 auto; /* Added */
     float: none; /* Added */
     margin-bottom: 10px; /* Added */
-    width: 30%;
-    height: 30%;
-    transition: width 1s;
+    width: 25%;
+    height: 25%;
+    transition: width 0.25s;
 }
 
 .user-info-card:hover {

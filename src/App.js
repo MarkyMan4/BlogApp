@@ -8,6 +8,7 @@ import {
 import axios from 'axios';
 import Post from './components/post';
 import UserInfo from './components/userInfo';
+import PostInfo from './components/postInfo';
 
 export default function App() {
   return (
@@ -40,8 +41,8 @@ export default function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/users/:userId" component={UserInfo}>
-          </Route>
+          <Route path="/users/:userId" component={UserInfo} />
+          <Route path="/post/:postId" component={PostInfo} />
           <Route path="/">
             <Home />
           </Route>
@@ -60,7 +61,7 @@ class Home extends Component {
     return ( 
       <div className="m-5">
         {this.state.data.map(datum =>
-          <Post key={datum.id} title={datum.title} body={datum.body} userId={datum.userId} />
+          <Post key={datum.id} title={datum.title} body={datum.body} userId={datum.userId} postId={datum.id} />
         )}
       </div>
      );
