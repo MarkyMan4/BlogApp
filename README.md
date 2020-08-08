@@ -70,3 +70,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 # BlogApp
 Learning React by making a blog app.
 
+All data comes from https://jsonplaceholder.typicode.com/. This dummy API is used as the backend. This repo is purely front end.

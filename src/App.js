@@ -54,14 +54,14 @@ export default function App() {
 
 class Home extends Component {
   state = { 
-    data: []
+    posts: []
    }
 
   render() {
     return ( 
       <div className="m-5">
-        {this.state.data.map(datum =>
-          <Post key={datum.id} title={datum.title} body={datum.body} userId={datum.userId} postId={datum.id} />
+        {this.state.posts.map(post =>
+          <Post key={post.id} title={post.title} body={post.body} userId={post.userId} postId={post.id} />
         )}
       </div>
      );
@@ -70,7 +70,7 @@ class Home extends Component {
   componentDidMount() {
     axios.get('https://jsonplaceholder.typicode.com/posts')
       .then(res => {
-        this.setState({data: res.data})
+        this.setState({posts: res.data})
       });
   }
 }
